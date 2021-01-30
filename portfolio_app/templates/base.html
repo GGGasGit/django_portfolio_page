@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block page_title %}{% endblock %}</title>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul class="menu-container">
+                <li class="menu-item"><a href="{% url 'index' %}">Portfolio</a></li>
+                <li class="menu-item"><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% block page_content %}{% endblock %}
+
+    <footer>
+        <p class="footer-text">&copy; Copyright 2021 - gasparads at gmail dot com</p>
+        <p class="footer-text">All logos and brand names are trademarks of their respective owners.</p>
+    </footer>
+
+</body>
+
+</html>

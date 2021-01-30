@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}My Portfolio{% endblock %}
+
+{% block page_content %}
+    <main>
+
+        <div class="description">
+            <div>
+                <img class="face-picture" src="{% static 'img/self.jpg' %}" alt="Picture of Gáspár Nagy">
+            </div>
+            <h2>Gáspár Nagy</h2>
+            <h3>Front-end web developer</h3>
+            <p class="description-text">Hi, I'm Gáspár, this is my portfolio page where you can see all my previous web and application development projects and my experience in different languages and frameworks. For references or queries, contact me using the form on the Contact page.</p>
+        </div>
+
+        <div class="container">
+
+            <h2>MY PORTFOLIO</h2>
+
+            <div class="item-container">
+                {% for project in projects %}
+                    <div class="portfolio-item">
+                        <div class="portfolio-item-text-container">
+                            <h3 class="portfolio-item-title">{{project.title}}</h3>
+                            <p class="portfolio-item-text">{{project.description}}</p>
+                        </div>
+                        <div class="portfolio-item-logo">
+                            <img class="logo" src="{% static project.imagepath %}" alt="{{project.technology}}">
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </main>
+
+{% endblock %}
